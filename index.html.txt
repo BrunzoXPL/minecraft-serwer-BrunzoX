@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinecraftHost</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #071426;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px 50px;
+            background: #0b1f3a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38a9ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38a9ff;
+        }
+
+        .hero {
+            padding: 80px 20px 50px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b8c7d9;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 40px 20px 80px;
+        }
+
+        .plan {
+            background: #0b1f3a;
+            border: 1px solid #183b63;
+            border-radius: 12px;
+            width: 250px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .plan h3 {
+            font-size: 25px;
+            color: #38a9ff;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .plan p {
+            color: #b8c7d9;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            background: #168cff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0874d1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">MinecraftHost</div>
+
+        <nav>
+            <a href="#">Start</a>
+            <a href="#">Oferta</a>
+            <a href="#">Panel klienta</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Twój serwer Minecraft.</h2>
+
+        <p>
+            Stabilny i profesjonalny hosting serwerów Minecraft.
+        </p>
+    </section>
+
+    <section class="plans">
+
+        <div class="plan">
+            <h3>START</h3>
+            <p>2 GB RAM</p>
+            <p>1 CPU</p>
+            <p>20 GB SSD</p>
+
+            <div class="price">5 zł / mies.</div>
+
+            <a href="#" class="button">Zamów</a>
+        </div>
+
+        <div class="plan">
+            <h3>PRO</h3>
+            <p>4 GB RAM</p>
+            <p>2 CPU</p>
+            <p>40 GB SSD</p>
+
+            <div class="price">10 zł / mies.</div>
+
+            <a href="#" class="button">Zamów</a>
+        </div>
+
+        <div class="plan">
+            <h3>MAX</h3>
+            <p>8 GB RAM</p>
+            <p>4 CPU</p>
+            <p>80 GB SSD</p>
+
+            <div class="price">20 zł / mies.</div>
+
+            <a href="#" class="button">Zamów</a>
+        </div>
+
+    </section>
+
+</body>
+</html>
