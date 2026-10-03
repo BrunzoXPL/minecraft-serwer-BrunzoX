@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -33,6 +34,7 @@
             text-decoration: none;
             margin-left: 25px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         nav a:hover {
@@ -94,10 +96,61 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
 
         .button:hover {
             background: #0874d1;
+        }
+
+        /* PANEL */
+        #panel {
+            display: none;
+            padding: 50px 20px 80px;
+        }
+
+        .panel-box {
+            max-width: 800px;
+            margin: auto;
+            background: #0b1f3a;
+            border: 1px solid #183b63;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .panel-box h2 {
+            color: #38a9ff;
+            text-align: center;
+        }
+
+        .status {
+            padding: 15px;
+            background: #071426;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .events {
+            margin-top: 25px;
+        }
+
+        .event {
+            padding: 12px;
+            border-bottom: 1px solid #183b63;
+            color: #b8c7d9;
+        }
+
+        .event strong {
+            color: white;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 0;
         }
     </style>
 </head>
@@ -108,57 +161,128 @@
         <div class="logo">MinecraftHost</div>
 
         <nav>
-            <a href="#">Start</a>
-            <a href="#">Oferta</a>
-            <a href="#">Panel klienta</a>
-            <a href="#">Kontakt</a>
+            <a onclick="showHome()">Start</a>
+            <a href="#oferta" onclick="showHome()">Oferta</a>
+            <a onclick="showPanel()">Panel klienta</a>
+            <a href="#kontakt" onclick="showHome()">Kontakt</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h2>Twój serwer Minecraft.</h2>
+    <!-- STRONA GŁÓWNA -->
+    <main id="home">
 
-        <p>
-            Stabilny i profesjonalny hosting serwerów Minecraft.
-        </p>
+        <section class="hero">
+            <h2>Twój serwer Minecraft.</h2>
+
+            <p>
+                Stabilny i profesjonalny hosting serwerów Minecraft.
+            </p>
+        </section>
+
+        <section class="plans" id="oferta">
+
+            <div class="plan">
+                <h3>START</h3>
+                <p>2 GB RAM</p>
+                <p>1 CPU</p>
+                <p>20 GB SSD</p>
+
+                <div class="price">5 zł / mies.</div>
+
+                <button class="button" onclick="addEvent('Kliknięto Zamów — START')">
+                    Zamów
+                </button>
+            </div>
+
+            <div class="plan">
+                <h3>PRO</h3>
+                <p>4 GB RAM</p>
+                <p>2 CPU</p>
+                <p>40 GB SSD</p>
+
+                <div class="price">10 zł / mies.</div>
+
+                <button class="button" onclick="addEvent('Kliknięto Zamów — PRO')">
+                    Zamów
+                </button>
+            </div>
+
+            <div class="plan">
+                <h3>MAX</h3>
+                <p>8 GB RAM</p>
+                <p>4 CPU</p>
+                <p>80 GB SSD</p>
+
+                <div class="price">20 zł / mies.</div>
+
+                <button class="button" onclick="addEvent('Kliknięto Zamów — MAX')">
+                    Zamów
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PANEL KLIENTA -->
+    <section id="panel">
+
+        <div class="panel-box">
+
+            <h2>Panel klienta</h2>
+
+            <div class="status">
+                <strong>Status serwera:</strong>
+                <span id="serverStatus">Nie podłączono</span>
+            </div>
+
+            <div class="events">
+                <h3>Dziennik zdarzeń</h3>
+
+                <div id="eventList">
+                    <div class="event">
+                        <strong>System:</strong>
+                        Panel został uruchomiony.
+                    </div>
+                </div>
+            </div>
+
+            <button class="button back-button" onclick="showHome()">
+                Powrót
+            </button>
+
+        </div>
+
     </section>
 
-    <section class="plans">
+    <script>
+        function showPanel() {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("panel").style.display = "block";
 
-        <div class="plan">
-            <h3>START</h3>
-            <p>2 GB RAM</p>
-            <p>1 CPU</p>
-            <p>20 GB SSD</p>
+            addEvent("Otwarto Panel klienta");
+        }
 
-            <div class="price">5 zł / mies.</div>
+        function showHome() {
+            document.getElementById("panel").style.display = "none";
+            document.getElementById("home").style.display = "block";
+        }
 
-            <a href="#" class="button">Zamów</a>
-        </div>
+        function addEvent(message) {
+            const eventList = document.getElementById("eventList");
 
-        <div class="plan">
-            <h3>PRO</h3>
-            <p>4 GB RAM</p>
-            <p>2 CPU</p>
-            <p>40 GB SSD</p>
+            const event = document.createElement("div");
+            event.className = "event";
 
-            <div class="price">10 zł / mies.</div>
+            const time = new Date().toLocaleTimeString("pl-PL");
 
-            <a href="#" class="button">Zamów</a>
-        </div>
+            event.innerHTML =
+                "<strong>" + time + ":</strong> " + message;
 
-        <div class="plan">
-            <h3>MAX</h3>
-            <p>8 GB RAM</p>
-            <p>4 CPU</p>
-            <p>80 GB SSD</p>
-
-            <div class="price">20 zł / mies.</div>
-
-            <a href="#" class="button">Zamów</a>
-        </div>
-
-    </section>
+            eventList.prepend(event);
+        }
+    </script>
 
 </body>
 </html>
+```
